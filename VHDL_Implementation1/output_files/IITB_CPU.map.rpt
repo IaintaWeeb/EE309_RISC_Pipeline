@@ -1,0 +1,452 @@
+Analysis & Elaboration report for IITB_CPU
+Tue May 30 00:26:17 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Port Connectivity Checks: "Haz_BEX:BEX"
+  6. Port Connectivity Checks: "MEMWB:MEM_WB_pipeline"
+  7. Port Connectivity Checks: "EXMEM:EX_MEM_pipeline"
+  8. Port Connectivity Checks: "Mux1_4x1:MUX_rfwr"
+  9. Port Connectivity Checks: "Mux1_4x1:MUX_Z"
+ 10. Port Connectivity Checks: "Mux1_4x1:MUX_C"
+ 11. Port Connectivity Checks: "adder:ALU3_EX"
+ 12. Port Connectivity Checks: "adder:Adder_RR"
+ 13. Port Connectivity Checks: "instr_decode:instruc_decode|Register_4bit:counter"
+ 14. Port Connectivity Checks: "adder:IF_add"
+ 15. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                   ;
++------------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status      ; Successful - Tue May 30 00:26:17 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; IITB_CPU                                    ;
+; Top-level Entity Name              ; Datapath                                    ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
+; UFM blocks                         ; N/A until Partition Merge                   ;
+; ADC blocks                         ; N/A until Partition Merge                   ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                            ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M25SAE144C8G     ;                    ;
+; Top-level entity name                                            ; Datapath           ; IITB_CPU           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Haz_BEX:BEX"                                                                         ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; htype ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MEMWB:MEM_WB_pipeline"                                                                    ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; op_out     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs1_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs2_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; imm_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pc_out     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; d3_mux_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; alu3_c_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "EXMEM:EX_MEM_pipeline"                                                                        ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; rf_d2_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; alu_sel_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; carry_sel_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; c_modified_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; z_modified_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cpl_out        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cz_out         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "Mux1_4x1:MUX_rfwr" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; d    ; Input ; Info     ; Stuck at VCC        ;
++------+-------+----------+---------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "Mux1_4x1:MUX_Z" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; d    ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "Mux1_4x1:MUX_C" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; d    ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "adder:ALU3_EX" ;
++---------+-------+----------+--------------+
+; Port    ; Type  ; Severity ; Details      ;
++---------+-------+----------+--------------+
+; inp2[0] ; Input ; Info     ; Stuck at GND ;
++---------+-------+----------+--------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "adder:Adder_RR" ;
++---------+-------+----------+---------------+
+; Port    ; Type  ; Severity ; Details       ;
++---------+-------+----------+---------------+
+; inp1[0] ; Input ; Info     ; Stuck at GND  ;
++---------+-------+----------+---------------+
+
+
++-------------------------------------------------------------------------------+
+; Port Connectivity Checks: "instr_decode:instruc_decode|Register_4bit:counter" ;
++--------------+-------+----------+---------------------------------------------+
+; Port         ; Type  ; Severity ; Details                                     ;
++--------------+-------+----------+---------------------------------------------+
+; datain[3]    ; Input ; Info     ; Stuck at GND                                ;
+; write_enable ; Input ; Info     ; Stuck at VCC                                ;
++--------------+-------+----------+---------------------------------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "adder:IF_add"      ;
++-------------+-------+----------+--------------+
+; Port        ; Type  ; Severity ; Details      ;
++-------------+-------+----------+--------------+
+; inp2[15..2] ; Input ; Info     ; Stuck at GND ;
+; inp2[1]     ; Input ; Info     ; Stuck at VCC ;
+; inp2[0]     ; Input ; Info     ; Stuck at GND ;
++-------------+-------+----------+--------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Elaboration
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Tue May 30 00:23:49 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IITB_CPU -c IITB_CPU --analysis_and_elaboration
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file testbench.vhdl
+    Info (12022): Found design unit 1: Testbench-Behave File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Testbench.vhdl Line: 9
+    Info (12023): Found entity 1: Testbench File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Testbench.vhdl Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file r0_hazard.vhd
+    Info (12022): Found design unit 1: Haz_R0-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/R0_hazard.vhd Line: 14
+    Info (12023): Found entity 1: Haz_R0 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/R0_hazard.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file load_imm_dep.vhd
+    Info (12022): Found design unit 1: Haz_load-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Load_Imm_dep.vhd Line: 14
+    Info (12023): Found entity 1: Haz_load File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Load_Imm_dep.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mux1_4x1.vhd
+    Info (12022): Found design unit 1: Mux1_4x1-Dataflow File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux1_4x1.vhd Line: 9
+    Info (12023): Found entity 1: Mux1_4x1 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux1_4x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file rr_ex.vhd
+    Info (12022): Found design unit 1: RREX-RREX_arch File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/RR_EX.vhd Line: 56
+    Info (12023): Found entity 1: RREX File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/RR_EX.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
+    Info (12022): Found design unit 1: ROM-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ROM.vhd Line: 12
+    Info (12023): Found entity 1: ROM File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ROM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file register_int.vhdl
+    Info (12022): Found design unit 1: Register_int-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_int.vhdl Line: 11
+    Info (12023): Found entity 1: Register_int File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_int.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file register_file.vhd
+    Info (12022): Found design unit 1: Register_File-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_file.vhd Line: 17
+    Info (12023): Found entity 1: Register_file File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_file.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file register_2bit.vhd
+    Info (12022): Found design unit 1: Register_2bit-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_2bit.vhd Line: 11
+    Info (12023): Found entity 1: Register_2bit File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_2bit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhdl
+    Info (12022): Found design unit 1: Memory-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/RAM.vhdl Line: 13
+    Info (12023): Found entity 1: Memory File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/RAM.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mux16_8x1.vhd
+    Info (12022): Found design unit 1: Mux16_8x1-Dataflow File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux16_8x1.vhd Line: 17
+    Info (12023): Found entity 1: Mux16_8x1 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux16_8x1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mux16_4x1.vhd
+    Info (12022): Found design unit 1: Mux16_4x1-Dataflow File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux16_4x1.vhd Line: 12
+    Info (12023): Found entity 1: Mux16_4x1 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux16_4x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux16_2x1.vhd
+    Info (12022): Found design unit 1: Mux16_2x1-Dataflow File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux16_2x1.vhd Line: 10
+    Info (12023): Found entity 1: Mux16_2x1 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux16_2x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux3_8x1.vhd
+    Info (12022): Found design unit 1: Mux3_8x1-Dataflow File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux3_8x1.vhd Line: 16
+    Info (12023): Found entity 1: Mux3_8x1 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux3_8x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux3_2x1.vhd
+    Info (12022): Found design unit 1: Mux3_4x1-Dataflow1 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux3_2x1.vhd Line: 12
+    Info (12023): Found entity 1: Mux3_4x1 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Mux3_2x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file if_id.vhd
+    Info (12022): Found design unit 1: IF_ID-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/IF_ID.vhd Line: 19
+    Info (12023): Found entity 1: IF_ID File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/IF_ID.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file haz_pc_controller.vhd
+    Info (12022): Found design unit 1: Haz_PC_controller-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_PC_controller.vhd Line: 15
+    Info (12023): Found entity 1: Haz_PC_controller File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_PC_controller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file haz_jlr.vhd
+    Info (12022): Found design unit 1: Haz_JLR-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_JLR.vhd Line: 13
+    Info (12023): Found entity 1: Haz_JLR File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_JLR.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file haz_jal.vhd
+    Info (12022): Found design unit 1: Haz_JAL-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_JAL.vhd Line: 13
+    Info (12023): Found entity 1: Haz_JAL File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_JAL.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file haz_bex.vhd
+    Info (12022): Found design unit 1: Haz_BEX-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_BEX.vhd Line: 18
+    Info (12023): Found entity 1: Haz_BEX File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Haz_BEX.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file forwarding_unit.vhd
+    Info (12022): Found design unit 1: Forwarding_Unit-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Forwarding_Unit.vhd Line: 14
+    Info (12023): Found entity 1: Forwarding_Unit File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Forwarding_Unit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file dff_en.vhd
+    Info (12022): Found design unit 1: dff_en-behave File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/dff_en.vhd Line: 13
+    Info (12023): Found entity 1: dff_en File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/dff_en.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhdl
+    Info (12022): Found design unit 1: Datapath-Struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 13
+    Info (12023): Found entity 1: Datapath File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file complementor.vhd
+    Info (12022): Found design unit 1: complementor-behave File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/complementor.vhd Line: 11
+    Info (12023): Found entity 1: complementor File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/complementor.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file branch_predictor.vhd
+    Info (12022): Found design unit 1: Branch_Predictor-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Branch_Predictor.vhd Line: 23
+    Info (12023): Found entity 1: Branch_Predictor File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Branch_Predictor.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file alu_pipeline.vhd
+    Info (12022): Found design unit 1: ALU-behave File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ALU_pipeline.vhd Line: 17
+    Info (12023): Found entity 1: ALU File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ALU_pipeline.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file register_4bit.vhd
+    Info (12022): Found design unit 1: Register_4bit-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_4bit.vhd Line: 10
+    Info (12023): Found entity 1: Register_4bit File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_4bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file id_adder.vhd
+    Info (12022): Found design unit 1: adder-behave File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ID_adder.vhd Line: 12
+    Info (12023): Found entity 1: adder File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ID_adder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file shifter7.vhd
+    Info (12022): Found design unit 1: Shifter7-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Shifter7.vhd Line: 10
+    Info (12023): Found entity 1: Shifter7 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Shifter7.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file se10.vhd
+    Info (12022): Found design unit 1: SE10-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/SE10.vhd Line: 9
+    Info (12023): Found entity 1: SE10 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/SE10.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file se7.vhd
+    Info (12022): Found design unit 1: SE7-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/SE7.vhd Line: 10
+    Info (12023): Found entity 1: SE7 File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/SE7.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file register_16bit.vhd
+    Info (12022): Found design unit 1: Register_16bit-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_16bit.vhd Line: 11
+    Info (12023): Found entity 1: Register_16bit File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_16bit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file register_3bit.vhd
+    Info (12022): Found design unit 1: Register_3bit-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_3bit.vhd Line: 10
+    Info (12023): Found entity 1: Register_3bit File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_3bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file register_1bit.vhd
+    Info (12022): Found design unit 1: Register_1bit-struct File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_1bit.vhd Line: 10
+    Info (12023): Found entity 1: Register_1bit File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Register_1bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file instr_decode.vhd
+    Info (12022): Found design unit 1: instr_decode-instr_decode_arch File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Instr_decode.vhd Line: 22
+    Info (12023): Found entity 1: instr_decode File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Instr_decode.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file ex_mem.vhd
+    Info (12022): Found design unit 1: EXMEM-EXMEM_arch File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/EX_MEM.vhd Line: 55
+    Info (12023): Found entity 1: EXMEM File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/EX_MEM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file id_rr.vhd
+    Info (12022): Found design unit 1: IDRR-IDRR_arch File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ID_RR.vhd Line: 50
+    Info (12023): Found entity 1: IDRR File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ID_RR.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mem_wb.vhd
+    Info (12022): Found design unit 1: MEMWB-MEMWB_arch File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/MEM_WB.vhd Line: 32
+    Info (12023): Found entity 1: MEMWB File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/MEM_WB.vhd Line: 5
+Info (12127): Elaborating entity "Datapath" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(466): object "ALU_sel_MEM" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 466
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(467): object "Carry_sel_MEM" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 467
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(468): object "C_modified_MEM" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 468
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(469): object "Z_modified_MEM" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 469
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(471): object "rf_d2_MEM" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 471
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(474): object "CPL_MEM" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 474
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(477): object "CZ_MEM" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 477
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(482): object "OP_WB" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 482
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(483): object "RS1_WB" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 483
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(483): object "RS2_WB" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 483
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(491): object "Imm_WB" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 491
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(492): object "PC_WB" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 492
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(493): object "D3_MUX_WB" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 493
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(498): object "Alu3C_WB" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 498
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhdl(518): object "Htype" assigned a value but never read File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 518
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:MyROM" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 523
+Info (12128): Elaborating entity "adder" for hierarchy "adder:IF_add" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 524
+Info (12128): Elaborating entity "IF_ID" for hierarchy "IF_ID:IF_ID_Pipepline_Reg" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 526
+Info (12128): Elaborating entity "Register_16bit" for hierarchy "IF_ID:IF_ID_Pipepline_Reg|Register_16bit:Instruction" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/IF_ID.vhd Line: 49
+Info (12128): Elaborating entity "Register_1bit" for hierarchy "IF_ID:IF_ID_Pipepline_Reg|Register_1bit:Canc" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/IF_ID.vhd Line: 52
+Info (12128): Elaborating entity "instr_decode" for hierarchy "instr_decode:instruc_decode" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 537
+Info (12128): Elaborating entity "SE10" for hierarchy "instr_decode:instruc_decode|SE10:Sign_6" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Instr_decode.vhd Line: 73
+Info (12128): Elaborating entity "SE7" for hierarchy "instr_decode:instruc_decode|SE7:Sign_9" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Instr_decode.vhd Line: 74
+Info (12128): Elaborating entity "Register_4bit" for hierarchy "instr_decode:instruc_decode|Register_4bit:counter" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Instr_decode.vhd Line: 77
+Info (12128): Elaborating entity "IDRR" for hierarchy "IDRR:ID_RR_pipeline" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 556
+Info (12128): Elaborating entity "Register_3bit" for hierarchy "IDRR:ID_RR_pipeline|Register_3bit:RS1" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ID_RR.vhd Line: 91
+Info (12128): Elaborating entity "Register_2bit" for hierarchy "IDRR:ID_RR_pipeline|Register_2bit:ALU_sel" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/ID_RR.vhd Line: 95
+Info (12128): Elaborating entity "Register_file" for hierarchy "Register_file:RF" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 598
+Info (12128): Elaborating entity "Mux16_2x1" for hierarchy "Mux16_2x1:MuxRF_D1" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 608
+Info (12128): Elaborating entity "Mux16_4x1" for hierarchy "Mux16_4x1:MuxA1" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 610
+Info (12128): Elaborating entity "RREX" for hierarchy "RREX:RR_EX_pipeline" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 616
+Info (12128): Elaborating entity "complementor" for hierarchy "complementor:COMPL" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 664
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU1_EX" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 667
+Info (12128): Elaborating entity "dff_en" for hierarchy "dff_en:D_ff1" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 669
+Info (12128): Elaborating entity "Mux1_4x1" for hierarchy "Mux1_4x1:MUX_C" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 671
+Info (12128): Elaborating entity "EXMEM" for hierarchy "EXMEM:EX_MEM_pipeline" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 678
+Info (12128): Elaborating entity "Memory" for hierarchy "Memory:RAM_MEM" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 725
+Info (12128): Elaborating entity "MEMWB" for hierarchy "MEMWB:MEM_WB_pipeline" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 729
+Info (12128): Elaborating entity "Forwarding_Unit" for hierarchy "Forwarding_Unit:MovingFWD" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 759
+Info (12128): Elaborating entity "Haz_JLR" for hierarchy "Haz_JLR:JLR" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 766
+Info (12128): Elaborating entity "Haz_JAL" for hierarchy "Haz_JAL:Jal" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 771
+Info (12128): Elaborating entity "Haz_BEX" for hierarchy "Haz_BEX:BEX" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 776
+Info (12128): Elaborating entity "Haz_load" for hierarchy "Haz_load:Load" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 787
+Info (12128): Elaborating entity "Haz_R0" for hierarchy "Haz_R0:R0_bkl" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 792
+Info (12128): Elaborating entity "Haz_PC_controller" for hierarchy "Haz_PC_controller:PC_hazard_ctrl" File: D:/github/RISC_Pipeline_CPU/VHDL_Implementation1/Datapath.vhdl Line: 796
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 8729 megabytes
+    Info: Processing ended: Tue May 30 00:26:18 2023
+    Info: Elapsed time: 00:02:29
+    Info: Total CPU time (on all processors): 00:01:22
+
+

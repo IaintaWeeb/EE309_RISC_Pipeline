@@ -1,0 +1,33 @@
+vsim work.datapath
+add wave -position insertpoint  \
+sim:/datapath/clock \
+sim:/datapath/reset \
+sim:/datapath/Reg_sel \
+sim:/datapath/CF_out \
+sim:/datapath/ZF_out \
+sim:/datapath/output_Reg
+add wave -position insertpoint  \
+sim:/datapath/RF/*
+add wave -position insertpoint  \
+sim:/datapath/RAM_MEM/Mem_Data_Out \
+sim:/datapath/RAM_MEM/Mem_Data_In \
+sim:/datapath/RAM_MEM/Mem_Add 
+add wave -position insertpoint  \
+sim:/datapath/RAM_MEM/Data
+add wave -position insertpoint sim:/datapath/PC/*
+add wave -position insertpoint  \
+sim:/datapath/MyROM/Mem_Add \
+sim:/datapath/MyROM/Mem_Data_Out \
+sim:/datapath/MyROM/Data
+add wave -position insertpoint sim:/datapath/ALU1_EX/*
+add wave -position insertpoint sim:/datapath/PC_hazard_ctrl/*
+add wave -position insertpoint sim:/datapath/IF_ID_Pipepline_Reg/*
+add wave -position insertpoint sim:/datapath/ID_RR_pipeline/*
+add wave -position insertpoint sim:/datapath/RR_EX_pipeline/*
+add wave -position insertpoint sim:/datapath/EX_MEM_pipeline/*
+add wave -position insertpoint sim:/datapath/MEM_WB_pipeline/*
+force -freeze sim:/datapath/clock 1 0, 0 {50 ps} -r 100
+force -freeze sim:/datapath/reset 1 0
+force -freeze sim:/datapath/Reg_sel 0000 0
+run
+force -freeze sim:/datapath/reset 0 0

@@ -1,0 +1,49 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "output_Reg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "output_Reg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "output_Reg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "output_Reg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "output_Reg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "output_Reg[5]",
+					"strict" : false
+				},
+				{
+					"name" : "output_Reg[6]",
+					"strict" : false
+				},
+				{
+					"name" : "output_Reg[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
